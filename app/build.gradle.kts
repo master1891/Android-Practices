@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    //alias(libs.plugins.hiltPlugin)
+    //id("kotlin-kapt")
 }
 
 android {
@@ -66,4 +68,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Hilt
+    //kapt(libs.hilt.android.compiler)
+    //implementation(libs.hilt.android)
+
+    //Navigation
+    //implementation (libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
 }
