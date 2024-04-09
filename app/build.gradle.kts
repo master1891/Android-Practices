@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
 }
 
 android {
@@ -66,4 +68,21 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    // Compose
+    //implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+
+    // Coroutines
+    //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+
+    // Coroutine lifecycle Scope
+    //implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+
+    implementation (libs.androidx.datastore.preferences)
+
+    implementation ("com.google.dagger:hilt-android:2.48")
+    kapt ("com.google.dagger:hilt-android-compiler:2.48")
+    //kapt ("androidx.hilt:hilt-compiler:1.2.0")
+    //implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
+
 }
