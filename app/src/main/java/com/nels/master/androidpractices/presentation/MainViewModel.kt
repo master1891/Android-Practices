@@ -1,5 +1,6 @@
 package com.nels.master.androidpractices.presentation
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,6 +19,7 @@ class MainViewModel @Inject constructor(
     private val putDarkTheme: PutDarkTheme
 ) : ViewModel() {
 
+    private val TAG =  "MainViewModel"
     init {
         getDarkThemeValue()
     }
@@ -28,12 +30,16 @@ class MainViewModel @Inject constructor(
     fun onEvent(e: MainEvent) {
         when (e) {
             is MainEvent.SaveDarkThemeValue -> saveTheme(state.darkMode)
-            is MainEvent.SelectedDarkThemeValues -> state = state.copy(darkMode = e.value)
+            is MainEvent.SelectedDarkThemeValues -> {
+                Log.d(TAG,"SelectedDarkThemeValues")
+                state =  state.copy(darkMode = e.value)
+            }
         }
     }
 
     private fun saveTheme(value: Boolean) {
         viewModelScope.launch {
+            Log.d(TAG,"saveTheme()")
             putDarkTheme(Cons.DARK_THEME_KEY, value)
         }
     }
