@@ -1,4 +1,4 @@
-package com.nels.master.androidpractices.ui.theme
+package com.nels.master.androidpractices.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
