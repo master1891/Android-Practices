@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.nels.master.androidpractices.builder.Car
+import com.nels.master.androidpractices.factorypattern.ProductFactory
 import com.nels.master.androidpractices.ui.theme.AndroidPracticesTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,18 +27,14 @@ class MainActivity : ComponentActivity() {
 
                 }
 
-                try {
-                    val car1 = Car.Builder()
-                        .year(1700)
-                        .color("Blue")
-                        .brand("Mercedez")
-                        .model("M3")
-                        .build2()
-                }catch (ex: Exception){
-                    ex.printStackTrace()
-                }
-            }
+                val productJabon = ProductFactory.crearProducto("jabon")
+                val productEscoba = ProductFactory.crearProducto("escoba")
 
+                productJabon?.doProduct()
+                productEscoba?.doProduct()
+
+
+            }
 
 
 
