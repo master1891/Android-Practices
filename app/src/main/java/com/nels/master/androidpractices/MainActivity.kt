@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import com.nels.master.androidpractices.abstractfactory.FactoryDevices
 import com.nels.master.androidpractices.builder.Car
 import com.nels.master.androidpractices.factorypattern.ProductFactory
+import com.nels.master.androidpractices.prototype.Pajaro
 import com.nels.master.androidpractices.ui.theme.AndroidPracticesTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +40,9 @@ class MainActivity : ComponentActivity() {
                 val factoryIphone = FactoryDevices.doIphone("iphone15")
                 val factorySam = FactoryDevices.doSamsung("s24")
 
+
+                 val cardenal = Pajaro(name = "Cardenal")
+                 val prototypeCardenal = cardenal.copy()
 
 
             }
